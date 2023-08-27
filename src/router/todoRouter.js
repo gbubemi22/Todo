@@ -32,6 +32,10 @@ router
 .route('/:id')
 .delete(TaskController.deleteOneTask)
 
+router
+.route('/find/:id')
+.get(TaskController.getTaskUserID)
+
 // Add the prefix to all routes
 const prefix = '/api/v1/tasks';
 router.use(prefix, router);

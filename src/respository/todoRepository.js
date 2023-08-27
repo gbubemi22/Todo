@@ -58,9 +58,16 @@ const taskRepository = {
       throw new Error("Error deleting task");
     }
   },
+
+  getTaskForAUser: async (userId) => {
+    const task = await Task.find({ user: userId });
+
+    if (!task) {
+      throw new Error("No task found");
+    }
+
+    return task;
+  },
 };
 
 export default taskRepository;
-
-
-
